@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     make \
     python3 \
     python3-pip \
+    virtualenv \
     golang-go
 
 RUN pip3 install \
