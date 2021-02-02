@@ -33,4 +33,4 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
 
 RUN go get -v github.com/ncarlier/webhookd \
     && mv /root/go/bin/webhookd /usr/local/bin \
-    && rm -rf /root/
+    && rm -rf /root/go
