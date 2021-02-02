@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
     virtualenv \
+    libgmp-dev \
     golang-go
 
 RUN pip3 install \
@@ -32,4 +33,4 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
 
 RUN go get -v github.com/ncarlier/webhookd \
     && mv /root/go/bin/webhookd /usr/local/bin \
-    && rm -rf /root/go
+    && rm -rf /root/
