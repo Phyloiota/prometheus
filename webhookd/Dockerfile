@@ -31,6 +31,6 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - \
     && apt-get update && apt-get install -y terraform \
     && rm -rf /var/lib/apt/lists/*
 
-RUN go get -v github.com/ncarlier/webhookd \
-    && mv /root/go/bin/webhookd /usr/local/bin \
+RUN curl -s https://raw.githubusercontent.com/ncarlier/webhookd/master/install.sh | bash \
+    && mv /root/.local/bin/webhookd /usr/local/bin \
     && rm -rf /root/go
