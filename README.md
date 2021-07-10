@@ -34,7 +34,7 @@ If you would like to change which targets should be monitored or make configurat
 
 Once configurations are done let's start it up. From the /prometheus project directory run the following command:
 
-    $ HOSTNAME=$(hostname) docker stack deploy -c docker-stack.yml prom
+    HOSTNAME=$(hostname) docker stack deploy -c docker-stack.yml prom
 
 
 That's it the `docker stack deploy' command deploys the entire Grafana and Prometheus stack automagically to the Docker Swarm. By default cAdvisor and node-exporter are set to Global deployment which means they will propogate to every docker host attached to the Swarm.
@@ -46,15 +46,15 @@ The Grafana Dashboard is now accessible via: `http://<Host IP Address>:3000` for
 
 In order to check the status of the newly created stack:
 
-    $ docker stack ps prom
+    docker stack ps prom
 
 View running services:
 
-    $ docker service ls
+    docker service ls
 
 View logs for a specific service
 
-    $ docker service logs prom_<service_name>
+    docker service logs prom_<service_name>
 
 ## Add Datasources and Dashboards
 Grafana version 5.0.0 has introduced the concept of provisioning. This allows us to automate the process of adding Datasources & Dashboards. The `/grafana/provisioning/` directory contains the `datasources` and `dashboards` directories. These directories contain YAML files which allow us to specify which datasource or dashboards should be installed. 
